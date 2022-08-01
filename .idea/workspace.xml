@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f13201-b8cc-4f38-8634-d05674fd1df7" name="Changes" comment="Initial commit">
+    <list default="true" id="56f13201-b8cc-4f38-8634-d05674fd1df7" name="Changes" comment="Tested printing the board in P1, wrote constructor for TicTacToe, wrote methods to place a piece, check if a piece already exists, and to print the board">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SKerns_P1/P1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SKerns_P1/P1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SKerns_P1/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SKerns_P1/TicTacToe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659302330806</updated>
-      <workItem from="1659302332342" duration="11679000" />
+      <workItem from="1659302332342" duration="12881000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1659304845622</created>
@@ -81,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659304845622</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Tested printing the board in P1, wrote constructor for TicTacToe, wrote methods to place a piece, check if a piece already exists, and to print the board">
+      <created>1659315384079</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659315384079</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +106,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Tested printing the board in P1, wrote constructor for TicTacToe, wrote methods to place a piece, check if a piece already exists, and to print the board" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tested printing the board in P1, wrote constructor for TicTacToe, wrote methods to place a piece, check if a piece already exists, and to print the board" />
   </component>
 </project>

@@ -4,15 +4,14 @@ package SKerns_P1;
 public class TicTacToe {
     private int boardSize;
     private int[][] board;
-    private final int userVal1;
-    private final int userVal2;
+    private final int userVal1 = 1;
+    private final int userVal2 = -1;
     private boolean spaceClear;
+
 
     public TicTacToe(){
         this.boardSize = 3;
         this.board = new int[boardSize][boardSize];
-        this.userVal1 = 1;
-        this.userVal2 = 2;
     }
 
     public void pieceOnBoard(int row, int column, int userVal){
@@ -56,7 +55,7 @@ public class TicTacToe {
                                 System.out.print(" X |");
                                 break;
                             }
-                            case 2: {
+                            case -1: {
                                 System.out.print(" O |");
                                 break;
                             }
@@ -67,5 +66,71 @@ public class TicTacToe {
                 countRow++;
             }
         }
+    }
+    public int checkRowsAndCol(){
+        //declare a sum to check against
+        int sumRow;
+        int sumCol;
+        for (int i = 0; i < boardSize; i++){
+            sumRow = 0;
+            sumCol = 0;
+            for (int j = 0; j < boardSize; j++){
+                sumRow += board[i][j];
+                sumCol += board[j][i];
+            }
+            if (checkSum(sumRow)){
+                return sumRow / boardSize;
+//            if (sumRow == (boardSize * userVal1) || sumRow == (boardSize *
+//                    userVal2)) {
+//                return (sumRow / boardSize);
+            }
+            else if (checkSum(sumCol)){
+                return sumCol / boardSize;
+            }
+        }
+        return 0;
+    }
+
+//    public int checkColumns(){
+//        int sumCol;
+//        for (int j = 0; j < boardSize; j++){
+//            sumCol = 0;
+//            for (int i = 0; i < boardSize; i++){
+//                sumCol += board[i][j];
+//            }
+//            if (checkSum(sumCol)){
+//                return sumCol / boardSize;
+//            }
+//        }
+//        return 0;
+//    }
+
+    public int checkDiags(){
+        int sumDiag = 0;
+        int sumDiag2 = 0;
+        //check the first diagonal
+        for (int i = 0; i < boardSize; i++){
+            sumDiag += board[i][i];
+            }
+        if (checkSum(sumDiag)){
+            return sumDiag / boardSize;
+        }
+
+        //check the second diagonal
+        for (int i = 0; i < boardSize; i++){
+            sumDiag2 += board[boardSize - i][i];
+        }
+        if (checkSum(sumDiag2)){
+            return sumDiag2 / boardSize;
+        }
+
+        return 0;
+    }
+    private boolean checkSum(int sum){
+        if (sum == (boardSize * userVal1) || sum == (boardSize *
+                userVal2)) {
+            return true;
+        }
+        return false;
     }
 }
