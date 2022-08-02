@@ -12,10 +12,15 @@ public class TicTacToe {
     public TicTacToe(){
         this.boardSize = 3;
         this.board = new int[boardSize][boardSize];
+//        int[][] testMatrix = new int[3][3];
+        for (int i = 0; i < 3; i++){
+            this.board[i][0] = -1;
+        }
     }
 
     public void pieceOnBoard(int row, int column, int userVal){
             board[row][column] = userVal;
+            //These inputs need to be validated
     }
 
     public boolean checkPieceOnBoard(int row, int column) {
@@ -118,7 +123,7 @@ public class TicTacToe {
 
         //check the second diagonal
         for (int i = 0; i < boardSize; i++){
-            sumDiag2 += board[boardSize - i][i];
+            sumDiag2 += board[(boardSize - 1) - i][i];
         }
         if (checkSum(sumDiag2)){
             return sumDiag2 / boardSize;
@@ -132,5 +137,9 @@ public class TicTacToe {
             return true;
         }
         return false;
+    }
+
+    public int getBoardSize(){
+        return boardSize;
     }
 }
