@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f13201-b8cc-4f38-8634-d05674fd1df7" name="Changes" comment="Created methods to sum the rows/columns, the diagonals, and a method to check the sum to compare to rows/columns/diagonals">
+    <list default="true" id="56f13201-b8cc-4f38-8634-d05674fd1df7" name="Changes" comment="Created bulk of the game to run in P1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SKerns_P1/P1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SKerns_P1/P1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SKerns_P1/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SKerns_P1/TicTacToe.java" afterDir="false" />
@@ -72,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659302330806</updated>
-      <workItem from="1659302332342" duration="32673000" />
+      <workItem from="1659302332342" duration="46812000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1659304845622</created>
@@ -95,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659323889887</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Created bulk of the game to run in P1">
+      <created>1659420418759</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659420418759</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +123,7 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Tested printing the board in P1, wrote constructor for TicTacToe, wrote methods to place a piece, check if a piece already exists, and to print the board" />
     <MESSAGE value="Created methods to sum the rows/columns, the diagonals, and a method to check the sum to compare to rows/columns/diagonals" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created methods to sum the rows/columns, the diagonals, and a method to check the sum to compare to rows/columns/diagonals" />
+    <MESSAGE value="Created bulk of the game to run in P1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created bulk of the game to run in P1" />
   </component>
 </project>

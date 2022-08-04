@@ -11,35 +11,42 @@ public class P1 {
 //    for (int i = 0; i < 3; i++){
 //        testMatrix[i][0] = 1;
 //    }
-        game.printBoard();
-        System.out.println("\n" + game.checkRowsAndCol());
-        System.out.println((game.checkDiags()));
-//    playGame(keyboardIn, game);
+//        game.printBoard();
+//        System.out.println("\n" + game.checkRowsAndCol());
+//        System.out.println((game.checkDiags()));
+        playGame(keyboardIn, game);
 
     }
-
+//    public static void announceWinner(int winner){
+//
+//        if winner
+//    }
     public static void playGame(Scanner keyboardIn, TicTacToe game){
         final int NUM_PLAYERS = 2;
-        final String PLAYER_1_NAME = "Player 1";
-        final String PLAYER_2_NAME = "Player 2";
-        final int USER_1_VAL = 1;
-        final int USER_2_VAL = -1;
+        final String PLAYER_1_NAME = "Player X";
+        final String PLAYER_2_NAME = "Player O";
+        final int PLAYER_1_VAL = 1;
+        final int PLAYER_2_VAL = -1;
         int count = 0;
         int checkWin;
-        int MAX_TURNS = (int)Math.pow(game.getBoardSize(), 2);
+        final int SQUARED = 2;
+        final int NO_WINNER = 0;
+        int MAX_TURNS = (int)Math.pow(game.getBoardSize(), SQUARED);
         int[] userChoice1 = new int[NUM_PLAYERS];
         int[] userChoice2 = new int[NUM_PLAYERS];
         do {
-            userTurn(keyboardIn, game, PLAYER_1_NAME, USER_1_VAL);
-            count++;
+            userTurn(keyboardIn, game, PLAYER_1_NAME, PLAYER_1_VAL);
             checkWin = checkWinner(game);
-            if (count < MAX_TURNS && checkWin == 0){
-                userTurn(keyboardIn, game, PLAYER_2_NAME, USER_2_VAL);
-                count++;
+            if (game.getCount() < MAX_TURNS && checkWin == NO_WINNER){
+                userTurn(keyboardIn, game, PLAYER_2_NAME, PLAYER_2_VAL);
             }
             checkWin = checkWinner(game);
 
-        } while(count < MAX_TURNS || checkWin == 0);
+        } while(game.getCount() < MAX_TURNS && checkWin == NO_WINNER);
+//        return checkWin;
+
+        game.congratulateWinner(checkWin, PLAYER_1_NAME, PLAYER_2_NAME);
+        game.printBoard();
     }
 
     public static int checkWinner(TicTacToe game){
