@@ -36,19 +36,21 @@ public class TicTacToe {
     private final int NO_WINNER = 0;
     //create a field for a count value of how many times players have played
     private int count;
-    private final int NUM_STAT_OPTIONS = 3;
-    private final int NUM_DIMENSIONS = 2;
-    final int X_WIN = 0, O_WIN = 1, TIE = 2;
+    final int X_WIN = 0;
+    final int O_WIN = 1;
+    final int TIE = 2;
 
     private int[] winnerStats;
     private int[] userChoice;
 
     /**
-     * This constructor sets up the boardsize and then creates a board of that
+     * This constructor sets up the board size and then creates a board of that
      * size, it also sets up arrays to hold the users choices and the number of
      * stat options
      */
     public TicTacToe(){
+        final int NUM_STAT_OPTIONS = 3;
+        final int NUM_DIMENSIONS = 2;
         //set the board size to 3
         this.boardSize = 3;
         //create an array of length and width of the board size
@@ -57,11 +59,6 @@ public class TicTacToe {
         this.userChoice = new int[NUM_DIMENSIONS];
         //create an array for the statistics of length of number of options
         this.winnerStats = new int[NUM_STAT_OPTIONS];
-
-//        int[][] testMatrix = new int[3][3];
-//        for (int i = 0; i < 3; i++){
-//            this.board[i][0] = -1;
-//        }
     }
 
     /**
@@ -71,7 +68,7 @@ public class TicTacToe {
      * @param keyboardIn A Scanner object to take in user input
      */
     public void playGame(Scanner keyboardIn){
-        //create an integer to hold the value of who won
+        //create an integer to hold the value of whom won
         int checkWin;
         //create an integer that will be watch for max amount of turns and is
         //the value of the board size squared
@@ -259,21 +256,16 @@ public class TicTacToe {
                     if (j == 0) {
                         System.out.printf("%2d", countRow);
                     }
-                    //print an empty space if no one has chosen this position
-//                    if (board[countRow][j] == 0) {
-//                        System.out.print("   |");
-//                    }
-                    //use a switch
-//                    else{
+
                     //use a switch statement to choose what to print in the row
                         switch (board[countRow][j]) {
                             //Print X if player 1 has the position
-                            case 1: {
+                            case PLAYER_VAL_1: {
                                 System.out.print(" X |");
                                 break;
                             }
                             //print O if player 2 has the position
-                            case -1: {
+                            case PLAYER_VAL_2: {
                                 System.out.print(" O |");
                                 break;
                             }
@@ -283,7 +275,6 @@ public class TicTacToe {
                                 System.out.print("   |");
                                 break;
                             }
-//                        }
                     }
 
                 }
@@ -464,26 +455,4 @@ public class TicTacToe {
         //increment the count
         count++;
     }
-
-//    public int getCount(){
-//        return count;
-//    }
-//    public int getBoardSize(){
-//        return boardSize;
-//    }
-//    public String getPlayer1Name(){
-//        return PLAYER_1_NAME;
-//    }
-//
-//    public String getPlayer2Name(){
-//        return PLAYER_2_NAME;
-//    }
-//
-//    public int getPlayerVal1(){
-//        return PLAYER_VAL_1;
-//    }
-//
-//    public int getPlayerVal2(){
-//        return PLAYER_VAL_2;
-//    }
 }
