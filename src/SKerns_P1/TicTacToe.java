@@ -27,38 +27,42 @@ public class TicTacToe {
     private final int PLAYER_VAL_1 = 1;
     //create a field for the value of player 2 to go into the array
     private final int PLAYER_VAL_2 = -1;
-    //create a field for the element where the row request by the user will be
-    private final int ROW = 0;
-    //create a field for the element where the column request by the user
-    // will be
-    private final int COL = 1;
     //create a field for the value when there is no winner
     private final int NO_WINNER = 0;
+    //create a field for the element where the row request by the user will be
+    private int row;
+    //create a field for the element where the column request by the user
+    // will be
+    private int col;
+
     //create a field for a count value of how many times players have played
     private int count;
-    final int X_WIN = 0;
-    final int O_WIN = 1;
-    final int TIE = 2;
-
-    private int[] winnerStats;
-    private int[] userChoice;
+    //create a field for a count of how many times player 1 has won
+    private int player1Win;
+    //create a field for a count of how many times player 2 has won
+    private int player2Win;
+    //create a field for a count of how many times the players have tied
+    private int tie;
 
     /**
      * This constructor sets up the board size and then creates a board of that
-     * size, it also sets up arrays to hold the users choices and the number of
-     * stat options
+     * size, it also sets up an array to hold the users choices, initializes
+     * the count, and statistics for ties and player wins, it is called as a no
+     * arg constructor
      */
     public TicTacToe(){
-        final int NUM_STAT_OPTIONS = 3;
-        final int NUM_DIMENSIONS = 2;
         //set the board size to 3
-        this.boardSize = 3;
+        boardSize = 3;
+        //set the count for number of turns to 0
+        count = 0;
         //create an array of length and width of the board size
-        this.board = new int[boardSize][boardSize];
-        //create an array to be used for holding user input
-        this.userChoice = new int[NUM_DIMENSIONS];
-        //create an array for the statistics of length of number of options
-        this.winnerStats = new int[NUM_STAT_OPTIONS];
+        board = new int[boardSize][boardSize];
+        //set the number of ties to 0
+        tie = 0;
+        //set the number of player 1 wins to 0
+        player1Win = 0;
+        //set the number of player 2 wins to 0
+        player2Win = 0;
     }
 
     /**
@@ -70,8 +74,8 @@ public class TicTacToe {
     public void playGame(Scanner keyboardIn){
         //create an integer to hold the value of whom won
         int checkWin;
-        //create an integer that will be watch for max amount of turns and is
-        //the value of the board size squared
+        //create an integer that will be watched for the max amount of turns
+        // and is the value of the board size squared
         int MAX_TURNS = (int)Math.pow(boardSize, 2);
 
         //create a do while loop to play each turn
@@ -163,10 +167,9 @@ public class TicTacToe {
         //valid space, it doesn't display the board again for clarity
         do {
             userChoose(keyboardIn, PLAYER_NAME);
-        } while (!checkPieceOnBoard(userChoice[ROW],
-                userChoice[COL]));
+        } while (!checkPieceOnBoard(row, col));
         //place the value on the board
-        pieceOnBoard(userChoice[ROW], userChoice[COL], USER_VAL);
+        pieceOnBoard(row, col, USER_VAL);
     }
 
     /**
@@ -178,8 +181,8 @@ public class TicTacToe {
      */
     public void userChoose(Scanner keyboardIn, String player) {
         //ask the user to choose a free space on the board
-        System.out.println("\nChoose a free space on the board " + player +
-                ".");
+        System.out.println("\n" + player + ", choose a free space on the " +
+                "board.");
         //ask them to input a valid row until they input a row in range
         do {
             System.out.print("Please choose a valid row: ");
@@ -191,9 +194,9 @@ public class TicTacToe {
                 keyboardIn.next();
             }
             //set the row of the user choice to the valid row input
-            userChoice[ROW] = keyboardIn.nextInt();
+            row = keyboardIn.nextInt();
 
-        } while (userChoice[ROW] >= boardSize || userChoice[ROW] < 0);
+        } while (row >= boardSize || row < 0);
 
         //ask them to input a valid column until they input a column in range
         do {
@@ -206,8 +209,8 @@ public class TicTacToe {
                 keyboardIn.next();
             }
             //set the column of the user choice to the valid column input
-            userChoice[COL] = keyboardIn.nextInt();
-        } while (userChoice[COL] >= boardSize || userChoice[COL] < 0);
+            col = keyboardIn.nextInt();
+        } while (col >= boardSize || col < 0);
     }
 
     /**
@@ -215,17 +218,12 @@ public class TicTacToe {
      * array of 1s and -1s
      */
     public void printBoard(){
-        //create a final int for the number of spaces per element
-        final int NUM_SPACES = 4;
         //create a final int for the number of rows per row (1 separator per)
         final int NUM_ROWS_PER_ROW = 2;
-        //create an int for the number of dashes that will be between rows
-        int numDash = boardSize * NUM_SPACES;
         //create an int for how many total rows there will be
         int printBoardLength = boardSize * NUM_ROWS_PER_ROW;
         //create a count to keep track of which row is being printed
         int countRow = 0;
-
         //print two spaces for the column labels
         System.out.print("  ");
         for (int i = 0; i < boardSize; i++) {
@@ -239,13 +237,13 @@ public class TicTacToe {
             //this section creates the divider dashes
             if (i % 2 != 0) {
                 //create a for loop to print the correct number of dashes
-                for (int d = 0; d < numDash; d++) {
+                for (int d = 0; d < boardSize; d++) {
                     //print out two spaces for the first section
                     if (d == 0) {
                         System.out.print("  ");
                     }
-                    //print a dash
-                    System.out.print("-");
+                    //print 4 dashes
+                    System.out.print("----");
                 }
             }
             //this section prints out the Xs and Os rows
@@ -362,7 +360,7 @@ public class TicTacToe {
      * This method takes in a sum and then checks to see if it is the sum of
      * the number of pieces in a row needed for a win
      * @param sum an int value to be checked
-     * @return boolean of it is a winning sum
+     * @return boolean of if it is a winning sum
      */
     public boolean checkSum(int sum){
         //if the sum is equal to the rows/columns of the board times the player
@@ -392,14 +390,14 @@ public class TicTacToe {
             case PLAYER_VAL_1: {
                 System.out.println("\n" + PLAYER_1_NAME + congrats);
                 //increment player one's wins
-                winnerStats[X_WIN]++;
+                player1Win++;
                 break;
             }
             //print if player two won
             case PLAYER_VAL_2: {
                 System.out.println("\n" + PLAYER_2_NAME + congrats);
                 //increment player two's wins
-                winnerStats[O_WIN]++;
+                player2Win++;
                 break;
             }
             //print if no one won
@@ -407,7 +405,7 @@ public class TicTacToe {
                 System.out.println("\nNo one wins! It's a tie! Here is the " +
                         "final board: ");
                 //increment the number of ties
-                winnerStats[TIE]++;
+                tie++;
                 break;
         }
         //print the final board
@@ -416,18 +414,21 @@ public class TicTacToe {
     }
 
     /**
-     * This method prints our the wins of each player and the number of times
+     * This method prints out the wins of each player and the number of times
      * they've tied
      */
     public void printWinnerStats(){
-        //print out how many times player 1 has won
+        //Note: I spent a lot of time trying to make this so it didn't repeat
+        //code, but in the end, all I did was end up making the rest of my code
+        //more complicated and less readable in order to save one section of
+        // repeating, so I reverted back to how I had it originally
         System.out.println("\n" + PLAYER_1_NAME + " has won " +
-                winnerStats[X_WIN] + " times!");
+                player1Win + " times!");
         //print out how many times player 2 has won
-        System.out.println(PLAYER_2_NAME + " has won " + winnerStats[O_WIN] +
+        System.out.println(PLAYER_2_NAME + " has won " + player2Win +
                 " times!");
         //print out how many ties there have been
-        System.out.println("There have been " + winnerStats[TIE] + " tie " +
+        System.out.println("There have been " + tie + " tie " +
                 "games.");
     }
 

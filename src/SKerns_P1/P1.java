@@ -8,8 +8,8 @@ package SKerns_P1;
 import java.util.Scanner;   //import the Scanner class
 
 /**
- * This program gives the user a welcome message, plays a tic-tac-toe game
- * until the player no longer wants to and then provides a goodbye message
+ * This program plays games of Tic-Tac-Toe boards of the size 3x3 and will
+ * continue to play them until the user no longer wants
  *
  * @author Stewart Kerns
  * @version 1.0
@@ -46,7 +46,7 @@ public class P1 {
      */
     public static void welcome(){
         System.out.println("Welcome to the P1 program, this program will " +
-                "allow two users to play\na game of Tic-Tac-Toe for as many" +
+                "allow two users to play\na game of Tic-Tac-Toe for as many " +
                 "rounds as they would like.\nPlayer X will go first and it " +
                 "will alternate from there.\n");
     }
@@ -75,7 +75,6 @@ public class P1 {
         keyboardIn.nextLine();
         //take in the user input and assign it to a String
         String userAnswer = keyboardIn.nextLine();
-
         //return true if the string input by the user matches
         return userAnswer.equalsIgnoreCase(stringEnd);
     }

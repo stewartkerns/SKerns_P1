@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f13201-b8cc-4f38-8634-d05674fd1df7" name="Changes" comment="Finished commenting and added additional checks to the user inputs to catch non-integers that would break the code">
+    <list default="true" id="56f13201-b8cc-4f38-8634-d05674fd1df7" name="Changes" comment="Further cleaned up code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SKerns_P1/P1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SKerns_P1/P1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SKerns_P1/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SKerns_P1/TicTacToe.java" afterDir="false" />
@@ -76,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659302330806</updated>
-      <workItem from="1659302332342" duration="98904000" />
+      <workItem from="1659302332342" duration="111878000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1659304845622</created>
@@ -127,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659840271423</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Further cleaned up code">
+      <created>1659843477604</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1659843477604</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +159,7 @@
     <MESSAGE value="Moved congratulate winner over to TicTacToe" />
     <MESSAGE value="Move all methods into TicTacToe, added a clearboard method that resets the game, added a counter of which player had won how many times" />
     <MESSAGE value="Finished commenting and added additional checks to the user inputs to catch non-integers that would break the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished commenting and added additional checks to the user inputs to catch non-integers that would break the code" />
+    <MESSAGE value="Further cleaned up code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Further cleaned up code" />
   </component>
 </project>
